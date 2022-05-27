@@ -1,8 +1,5 @@
+[11:29] Harshit Prasad
 version: 0.2
-
-
-
-
 phases:
 pre_build:
 commands:
@@ -16,7 +13,7 @@ build:
 commands:
 - echo Build started on `date`
 - echo Building the Docker image...
-- docker build -t test .
+- docker build -t $REPOSITORY_URI:latest .
 - docker tag $REPOSITORY_URI:latest $REPOSITORY_URI:$IMAGE_TAG
 post_build:
 commands:
@@ -29,3 +26,4 @@ commands:
 - cat imagedefinitions.json
 artifacts:
 files: imagedefinitions.json
+
